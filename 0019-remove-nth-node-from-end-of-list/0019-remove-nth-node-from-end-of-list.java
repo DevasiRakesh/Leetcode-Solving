@@ -21,7 +21,6 @@ class Solution {
         int len=size(head);
         
         if(n==len){return head.next;}
-        System.out.print(len+"");
         int i=1;
         ListNode temp=head;
         while(i<len-n){temp=temp.next;i++;}
