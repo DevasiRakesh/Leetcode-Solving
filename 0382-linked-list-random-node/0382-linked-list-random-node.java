@@ -26,10 +26,10 @@ class Solution {
         // return list.get(random_Index);
         int result = head.val;
         ListNode curr = head.next;
-        int index = 0;
+        int index = 1;
 
         while (curr != null) {
-            if (rand.nextInt(index + 1) == 1) {
+            if (rand.nextInt(index + 1) == 0) {
                 result = curr.val;
             }
             index++;
