@@ -18,6 +18,7 @@ class Solution {
         return slow;
     }
     public void reorderList(ListNode head) {
+        
         ListNode mid=printmid(head);
         ListNode secmid=mid.next;
         mid.next=null;
