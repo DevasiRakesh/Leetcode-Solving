@@ -24,20 +24,14 @@ class Solution {
         // int n=list.size();
         // int random_Index=rand.nextInt(n);
         // return list.get(random_Index);
-        int result = head.val;
-        ListNode curr = head.next;
-        int index = 1;
+        int res = -1;
+        int i = 1;
 
-        while (curr != null) {
-            if (rand.nextInt(index + 1) == 0) {
-                result = curr.val;
-            }
-            index++;
-            curr = curr.next;
-        }
+        for (ListNode curr = head; curr != null; curr = curr.next, ++i)
+        if (rand.nextInt(i) == i - 1)
+            res = curr.val;
 
-        // return result;
-        return result;
+        return res;
     }
 }
 
