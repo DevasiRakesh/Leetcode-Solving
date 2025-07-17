@@ -26,7 +26,7 @@ class Solution {
         // return list.get(random_Index);
         int result = head.val;
         ListNode curr = head.next;
-        int index = 1;
+        int index = 0;
 
         while (curr != null) {
             if (rand.nextInt(index + 1) == 1) {
