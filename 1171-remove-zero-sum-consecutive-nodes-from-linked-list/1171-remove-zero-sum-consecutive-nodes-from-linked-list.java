@@ -31,11 +31,8 @@ class Solution {
                 node.next=temp.next;
             }else{
                 map.put(sum,temp);
-            }
-            System.out.println(sum);
-            
+            }            
             temp=temp.next;
-            
         }
         return head;
     }
