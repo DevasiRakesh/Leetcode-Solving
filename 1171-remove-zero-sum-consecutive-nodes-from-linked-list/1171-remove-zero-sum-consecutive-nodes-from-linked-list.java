@@ -21,10 +21,18 @@ class Solution {
             }
             else if(map.containsKey(sum)){
                 ListNode node=map.get(sum);
+                ListNode newNode=node.next;
+                int total=sum;
+                while(newNode!=temp){
+                    total+=newNode.val;
+                    if(map.containsKey(total)){map.remove(total);}
+                    newNode=newNode.next;
+                }
                 node.next=temp.next;
             }else{
                 map.put(sum,temp);
             }
+            System.out.println(sum);
             
             temp=temp.next;
             
