@@ -18,17 +18,12 @@ class Solution {
          }
          while(temp!=null){
             if(set.contains(temp.val)){
-                if(temp.next!=null){
-                    if(set.contains(temp.next.val)){
-                        connect++;
-                        temp=temp.next;
-                        while(temp!=null && set.contains(temp.val)){
-                            temp=temp.next;
-                        }
-                        continue;
-                        }
-                    else{nc++;temp=temp.next;}
-                }else{nc++;temp=temp.next;}
+                boolean check=false;
+                while(temp!=null && set.contains(temp.val)){
+                    temp=temp.next;
+                    check=true;
+                }
+                if(check){connect++;}else{nc++;}
             }else{temp=temp.next;}
          }
          return nc+connect;
