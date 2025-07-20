@@ -20,21 +20,18 @@ class Solution {
         return prev;
     }
     public ListNode removeNodes(ListNode head) {
-        if(head==null || head.next==null){return head;}
-        ListNode dummy=new ListNode(-1);
-        dummy.next=reverse(head);
-        ListNode curr=dummy;
-        while(curr.next!=null){
-            ListNode next1=curr.next;
-            if(curr.val>next1.val){
-                while(next1!=null && curr.val>next1.val){
-                    next1=next1.next;
-                }
+        ListNode dummy=new ListNode(0);
+        ListNode curr=reverse(head),tail=dummy;
+        int max=Integer.MIN_VALUE;
+        while(curr!=null){
+            if(curr.val>=max){
+                tail.next=curr;
+                tail=curr;
+                max=curr.val;
             }
-            curr.next=next1;
-            curr=next1;
-            if(curr==null){break;}
+            curr=curr.next;
         }
+        tail.next=null;
         return reverse(dummy.next);
     }
 }
