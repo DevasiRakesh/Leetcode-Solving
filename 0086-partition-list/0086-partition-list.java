@@ -22,7 +22,10 @@ class Solution {
             }
             head=head.next;
         }
-        if(newls!=null){lsH.next=newgt;gtH.next=null;return newls;}
+        if(newls!=null){
+            lsH.next=newgt;
+            if(gtH!=null){gtH.next=null;}
+            return newls;}
         return newgt;
     }
 }
