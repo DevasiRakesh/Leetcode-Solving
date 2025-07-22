@@ -18,6 +18,7 @@ class Solution {
             if(check){if(next1==null){if(prev!=null){prev.next=null;}} curr=next1;}
             else{if(prev==null){prev=head=curr;}else{prev.next=curr;prev=curr;}curr=next1;}
         }
+        if(prev==null){return null;}
         return head;
     }
 }
