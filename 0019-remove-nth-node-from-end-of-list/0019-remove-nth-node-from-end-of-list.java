@@ -13,8 +13,8 @@ class Solution {
         ListNode dummy=new ListNode(0);
         dummy.next=head;
         ListNode slow=dummy,fast=dummy;
-        for(int i=0;i<=n;i++){fast=fast.next;}
-        while(fast!=null){
+        for(int i=0;i<n;i++){fast=fast.next;}
+        while(fast.next!=null){
             slow=slow.next;
             fast=fast.next;
         }
