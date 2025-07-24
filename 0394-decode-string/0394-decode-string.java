@@ -1,7 +1,7 @@
 class Solution {
     private int idx = 0; // non-static instance variable
     public String decodeString(String s) {
-        idx = 0; // reset idx before each use
+        // idx = 0; // reset idx before each use
         return dfs(s);
     }
     public  String dfs(String s) {
