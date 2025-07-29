@@ -10,10 +10,10 @@ class Solution {
              result.add(new ArrayList<>(lst));
             return;
         }
+         if(k<1){return;}
         for(int i=idx;i<num.length;i++){
            if (i > idx && num[i] == num[i - 1]) continue; // skip duplicates
-
-            if (num[i] > k) break; // no need to continue if current num is greater
+            // if (num[i] > k) break; // no need to continue if current num is greater
                 lst.add(num[i]);
                 backtrack(result,i+1,lst,k-num[i],num);
                 lst.remove(lst.size()-1);
