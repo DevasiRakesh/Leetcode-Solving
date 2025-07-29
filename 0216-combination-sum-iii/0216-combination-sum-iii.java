@@ -1,22 +1,21 @@
 class Solution {
     public List<List<Integer>> combinationSum3(int k, int n) {
-        List<List<Integer>> result =new ArrayList<>();
-        int nums[]=new int[9];
-        for(int i=0;i<9;i++){nums[i]=i+1;System.out.print(nums[i]+" ");}
-        backtrack(result,new ArrayList<>(),k,n,0,nums);
+         List<List<Integer>> result = new ArrayList<>();
+        backtrack(result, new ArrayList<>(), k, n, 1);
         return result;
     }
-    public static void backtrack(List<List<Integer>> result,List<Integer> list ,int k,int n,int idx,int nums[]){
-        if(k==0 && n==0){
-            result.add(new ArrayList<>(list));
-            return ;
-        }
-        for(int i=idx;i<nums.length;i++){
-            if(n<nums[i]){continue;}
-            list.add(nums[i]);
-            backtrack(result,list,k-1,n-nums[i],i+1,nums);
-            list.remove(list.size()-1);
+
+    private void backtrack(List<List<Integer>> result, List<Integer> path, int k, int n, int start) {
+        if (k == 0 && n == 0) {
+            result.add(new ArrayList<>(path));
+            return;
         }
 
+        for (int i = start; i <= 9; i++) {
+            if (i > n) break; // Prune: No need to continue if i exceeds remaining sum
+            path.add(i);
+            backtrack(result, path, k - 1, n - i, i + 1);
+            path.remove(path.size() - 1); // Backtrack
+        }
     }
 }
