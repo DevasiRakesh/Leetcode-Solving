@@ -17,7 +17,7 @@ class Solution {
             if (i > start && candidates[i] == candidates[i - 1]) continue;
 
             // No need to continue if the number is too big
-            if (candidates[i] > remain) break;
+            if (candidates[i] > remain) return;// arr is sort
 
             temp.add(candidates[i]);
             backtrack(result, temp, candidates, remain - candidates[i], i + 1); // i + 1: don't reuse
