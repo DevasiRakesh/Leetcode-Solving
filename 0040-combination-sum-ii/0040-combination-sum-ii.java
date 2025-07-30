@@ -1,22 +1,27 @@
 class Solution {
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-        List<List<Integer>> result=new ArrayList<>();
-        Arrays.sort(candidates);
-        backtrack(result,0,new ArrayList<>(),target,candidates);
+        List<List<Integer>> result = new ArrayList<>();
+        Arrays.sort(candidates); // Sort to handle duplicates easily
+        backtrack(result, new ArrayList<>(), candidates, target, 0);
         return result;
     }
-    public static void backtrack(List<List<Integer>> result,int idx,List<Integer> lst,int k,int num[]){
-        if(k==0){
-             result.add(new ArrayList<>(lst));
+
+    private void backtrack(List<List<Integer>> result, List<Integer> temp, int[] candidates, int remain, int start) {
+        if (remain == 0) {
+            result.add(new ArrayList<>(temp));
             return;
         }
-         if(k<1){return;}
-        for(int i=idx;i<num.length;i++){
-           if (i > idx && num[i] == num[i - 1]) continue; // skip duplicates
-            // if (num[i] > k) break; // no need to continue if current num is greater
-                lst.add(num[i]);
-                backtrack(result,i+1,lst,k-num[i],num);
-                lst.remove(lst.size()-1);
+
+        for (int i = start; i < candidates.length; i++) {
+            // Skip duplicates (important)
+            if (i > start && candidates[i] == candidates[i - 1]) continue;
+
+            // No need to continue if the number is too big
+            if (candidates[i] > remain) break;
+
+            temp.add(candidates[i]);
+            backtrack(result, temp, candidates, remain - candidates[i], i + 1); // i + 1: don't reuse
+            temp.remove(temp.size() - 1); // Backtrack
         }
     }
 }
