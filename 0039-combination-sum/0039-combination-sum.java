@@ -9,8 +9,9 @@ class Solution {
             result.add(new ArrayList<>(lst));
             return ;
         }
-        if(target<2) return;
+        // if(target<2) return;
         for(int i=idx;i<candidates.length;i++){
+            if(target<candidates[i]){continue;}
             lst.add(candidates[i]);
             backtrack(result,lst,i,target-candidates[i],candidates);
             lst.remove(lst.size()-1);
