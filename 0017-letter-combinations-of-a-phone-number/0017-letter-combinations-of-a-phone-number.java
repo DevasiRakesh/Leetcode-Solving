@@ -1,5 +1,5 @@
 class Solution {
-    private static final String[] MAPPING = {
+    public  static  String[] MAPPING = {
         "",     // 0
         "",     // 1
         "abc",  // 2
