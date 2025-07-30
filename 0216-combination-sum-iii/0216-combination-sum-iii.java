@@ -9,7 +9,7 @@ class Solution {
             result.add(new ArrayList<>(lst));
             return ;
         }
-        for(int i=idx;i<9;i++){
+        for(int i=idx;i<=9;i++){
             if(i>n){return ;}
             lst.add(i);
             backtrack(result ,lst,i+1,k-1,n-i);
