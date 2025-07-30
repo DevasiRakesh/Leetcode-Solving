@@ -10,7 +10,7 @@ class Solution {
             result.add(new ArrayList<>(tempList));
             return;
         }
-        if (target < 0) return;
+        if (target < 2) return;
 
         for (int i = start; i < candidates.length; i++) {
             tempList.add(candidates[i]);                          // Choose
