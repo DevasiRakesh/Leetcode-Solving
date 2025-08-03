@@ -9,17 +9,22 @@ class Solution {
             if(eval==target){result.add(path);}
             return;
         }
-        for(int i=pos;i<num.length();i++){
-            if(i!=pos && num.charAt(i)==0){break;}
-            String currStr=num.substring(pos,i+1);
-            long currNum=Long.parseLong(currStr);
-            if(pos==0){
-                backtrack(result,path+currNum,num,target,i+1,currNum,currNum);
-            }else{
-                backtrack(result,path +"+"+currNum,num,target,i+1,eval+currNum,currNum);
-                backtrack(result,path +"-"+currNum,num,target,i+1,eval-currNum,-currNum);
-                backtrack(result,path +"*"+currNum,num,target,i+1,eval-multed+multed*currNum,multed*currNum);
-            }
-        }
+       for (int i = pos; i < num.length(); i++) {
+    // ❗ Skip numbers like "05", "001" — only allow "0" by itself
+    if (i != pos && num.charAt(pos) == '0') break;
+
+    String currStr = num.substring(pos, i + 1);
+    long currNum = Long.parseLong(currStr);
+
+    if (pos == 0) {
+        // First number: no operator before it
+        backtrack(result, currStr, num, target, i + 1, currNum, currNum);
+    } else {
+        backtrack(result, path + "+" + currStr, num, target, i + 1, eval + currNum, currNum);
+        backtrack(result, path + "-" + currStr, num, target, i + 1, eval - currNum, -currNum);
+        backtrack(result, path + "*" + currStr, num, target, i + 1, eval - multed + multed * currNum, multed * currNum);
+    }
+}
+
     }
 }
