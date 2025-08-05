@@ -10,14 +10,11 @@ class Solution {
             str1[i]= new String(chars);
         }
         for(int i=0;i<str.length;i++){
-            List<String> lst=new ArrayList<>();
             if(!used[i]){
+                List<String> lst=new ArrayList<>();
                 lst.add(str[i]);
                 for(int j=i+1;j<str.length;j++){
-                    if(!used[j]){
-                        if(str1[i].equals(str1[j])){lst.add(str[j]);used[j]=true;}
-                    }
-                    
+                        if(str1[i].equals(str1[j]) && !used[j]){lst.add(str[j]);used[j]=true;}
                 }
                 result.add(lst);
             }
