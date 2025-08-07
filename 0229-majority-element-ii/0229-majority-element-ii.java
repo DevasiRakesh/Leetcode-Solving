@@ -26,7 +26,7 @@ class Solution {
         }
 
         // 1st Pass: Find potential candidates
-        int candidate1 = 0, candidate2 = 1; // initialize with different numbers
+        int candidate1 = 0, candidate2 = 0; // initialize with different numbers
         int count1 = 0, count2 = 0;
 
         for (int num : nums) {
