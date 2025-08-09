@@ -1,19 +1,17 @@
 class Solution {
     public List<List<Integer>> combine(int n, int k) {
-        int arr[]=new int[n];
-        for(int i=0;i<n;i++){arr[i]=i+1;}
-        List<List<Integer>> result=new ArrayList<>();
-        backtrack(result,new ArrayList<>(),0,k,arr);
+        List<List<Integer>>result=new ArrayList<>();
+        backtrack(result,new ArrayList<>(),n,k ,1);
         return result;
     }
-    public static void backtrack(List<List<Integer>> result,List<Integer> lst,int idx,int k,int arr[]){
+    public static void backtrack(List<List<Integer>> result,List<Integer> lst,int n,int k,int idx){
         if(k==0){
             result.add(new ArrayList<>(lst));
-            return;
+            return ;
         }
-        for(int i=idx;i<arr.length;i++){
-            lst.add(arr[i]);
-            backtrack(result,lst,i+1,k-1,arr);
+        for(int i=idx;i<=n;i++){
+            lst.add(i);
+            backtrack(result,lst,n,k-1,i+1);
             lst.remove(lst.size()-1);
         }
     }
