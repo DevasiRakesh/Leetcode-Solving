@@ -22,7 +22,7 @@ class Solution {
         for(int i = start; i<matchsticks.length; i++){
             if(used[i])continue;
             if(matchsticks[i]+total>target) break;
-            // if(i>0 && matchsticks[i]==matchsticks[i-1]&& !used[i-1]) continue;
+            if(i>0 && matchsticks[i]==matchsticks[i-1]&& !used[i-1]) continue;
             used[i]=true;
             if(backtrack(matchsticks, target, i+1, used, total+matchsticks[i], buckets)) return true;
             used[i] = false;
