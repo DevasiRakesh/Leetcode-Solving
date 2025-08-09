@@ -16,12 +16,12 @@ class Solution {
         for (int i = start; i < candidates.length; i++) {
              if (candidates[i] > remain) return;// arr is sort
             // Skip duplicates (important)
-            if (i > 0 && candidates[i] == candidates[i - 1] && !used[i-1]) continue;  
-            used[i]=true;
+            if (i > s && candidates[i] == candidates[i - 1] ) continue;  
+            // used[i]=true;
             temp.add(candidates[i]);
             backtrack(result, temp, candidates, remain - candidates[i], i + 1,used); // i + 1: don't reuse
             temp.remove(temp.size() - 1); // Backtrack
-            used[i]=false;
+            // used[i]=false;
         }
     }
 }
