@@ -26,7 +26,7 @@ class Solution {
             used[i]=true;
             if(backtrack(matchsticks, target, i+1, used, total+matchsticks[i], buckets)) return true;
             used[i] = false;
-            if (total == 0) break;
+            // if (total == 0) break;
 
 
         }
