@@ -1,7 +1,7 @@
 class Solution {
     public List<List<Integer>> combine(int n, int k) {
-        List<List<Integer>>result=new ArrayList<>();
-        backtrack(result,new ArrayList<>(),n,k ,1);
+        List<List<Integer>> result=new ArrayList<>();
+        backtrack(result,new ArrayList<>(),n,k,1);
         return result;
     }
     public static void backtrack(List<List<Integer>> result,List<Integer> lst,int n,int k,int idx){
