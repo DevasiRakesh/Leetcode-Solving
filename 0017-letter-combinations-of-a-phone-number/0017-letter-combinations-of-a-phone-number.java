@@ -1,5 +1,5 @@
 class Solution {
-    public  static  String[] MAPPING = {
+      String[] MAPPING = {
         "",     // 0
         "",     // 1
         "abc",  // 2
@@ -20,7 +20,7 @@ class Solution {
     }
 
     private void backtrack(String digits, int idx, StringBuilder path, List<String> result) {
-        if (idx == digits.length()) {
+        if (path.length()== digits.length()) {
             result.add(path.toString());
             return;
         }
