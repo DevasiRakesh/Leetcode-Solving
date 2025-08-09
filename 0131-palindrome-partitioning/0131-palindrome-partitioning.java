@@ -1,22 +1,22 @@
 class Solution {
     public List<List<String>> partition(String s) {
-        List<List<String>> lst=new ArrayList<>();
-        backtrack(lst,new ArrayList<>(),0,s);
-        return lst;
+        List<List<String>> result=new ArrayList<>();
+        backtrack(result,new ArrayList<>(),s,0);
+        return result;
     }
-    public static void backtrack(List<List<String>> result,List<String> list,int idx,String s){
-        if(idx==s.length()){result.add(new ArrayList<>(list));return ;}
+    public static void backtrack(List<List<String>> result,List<String> lst,String s,int idx){
+        if(idx==s.length()){result.add(new ArrayList<>(lst));return ;}
         for(int i=idx;i<s.length();i++){
             if(isPalindrome(s,idx,i)){
-                list.add(s.substring(idx,i+1));
-                backtrack(result,list,i+1,s);
-                list.remove(list.size()-1);
+                lst.add(s.substring(idx,i+1));
+                backtrack(result,lst,s,i+1);
+                lst.remove(lst.size()-1);
             }
         }
     }
-    public static boolean isPalindrome(String str,int l,int r){
+    public static boolean isPalindrome(String s,int l,int r){
         while(l<r){
-            if(str.charAt(l++)!=str.charAt(r--)){return false;}
+            if(s.charAt(l++)!=s.charAt(r--)){return false;}
         }
         return true;
     }
