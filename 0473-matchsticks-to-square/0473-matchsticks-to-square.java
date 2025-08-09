@@ -24,7 +24,7 @@ class Solution {
             if(matchsticks[i]+total>target) break;
             if(i>0 && matchsticks[i]==matchsticks[i-1]&& !used[i-1]) continue;
             used[i]=true;
-            if(backtrack(matchsticks, target, i, used, total+matchsticks[i], buckets)) return true;
+            if(backtrack(matchsticks, target, i+1, used, total+matchsticks[i], buckets)) return true;
             used[i] = false;
         }
         return false;
