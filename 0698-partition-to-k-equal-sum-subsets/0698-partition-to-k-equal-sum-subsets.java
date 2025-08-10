@@ -32,7 +32,7 @@ class Solution {
             used[i] = false;
 
             // Optimization: skip duplicates or unnecessary branches
-            if (currSum == 0) break; // If the first number doesn't fit, nothing else will
+            // if (currSum == 0) break; // If the first number doesn't fit, nothing else will
         }
 
         return false;
