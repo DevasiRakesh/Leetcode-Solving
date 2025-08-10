@@ -11,7 +11,7 @@ class Solution {
         // Optional optimization: sort in descending order
         Arrays.sort(nums);
         reverse(nums); // custom method to reverse the sorted array
-
+        if(nums[nums.length-1] > target){return false;}
         boolean[] used = new boolean[nums.length];
         return backtrack(nums, used, k, target, 0, 0);
     }
@@ -32,7 +32,7 @@ class Solution {
             used[i] = false;
 
             // Optimization: skip duplicates or unnecessary branches
-            if (currSum == 0) break; // If the first number doesn't fit, nothing else will
+            // if (currSum == 0) break; // If the first number doesn't fit, nothing else will
         }
 
         return false;
