@@ -8,8 +8,7 @@ class Solution {
     public void backtrack(List<String> res, int i , char[] s){
         if(i==s.length) res.add(new String(s));
 
-        else{
-            if(Character.isLetter(s[i])){
+        else if(Character.isLetter(s[i])){
                 s[i] = Character.toUpperCase(s[i]);
                 backtrack(res,i+1,s);
                 s[i] = Character.toLowerCase(s[i]);
@@ -20,4 +19,3 @@ class Solution {
             }
         }
     }
-}
