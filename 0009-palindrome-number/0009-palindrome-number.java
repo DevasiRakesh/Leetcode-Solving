@@ -6,6 +6,6 @@ class Solution {
             rev_no=rev_no*10+x%10;
             x/=10;
          }
-         return (org == rev_no)? true : false;
+         return (org == rev_no);
     }
 }
